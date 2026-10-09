@@ -1,1 +1,11 @@
 Answer written questions here:
+
+1. Start with low iteration count helps the image render more quickly and it stays 
+responsive while zooming or panning. If there are too many iterations, the application
+might be slow since each pixel needs to finsh rendering before the next frame
+2. Multiple or CPU thread can work on different sections of pixels, so each will render
+different sections of the image. The main computer will then combine the results by writing
+them the view buffer.
+3. Sample four subpixels per pixel and average their color will reduce jagged edges and
+speckled noise since it helps smooth the image. However, it will require 4 times as many 
+calls to mandelbrotSmooth per frame hence increase the computation time
